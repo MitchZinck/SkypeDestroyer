@@ -15,7 +15,12 @@ Exploits headers and the Skype protocol.
 # - Starts the script
 !size here! - Determines the font size
 
-#[website](text)!font size! OR #!fontsize!text here 
+E.G.
+#[website](text)!font size! - Link spoofed with fontsize changed
+
+#!fontsize!text here - Text with fontsize changed
+
+#[website](text) - Link spoofed
 
 (Font sizes in skype range from 9[Normal Size] to 1[Smallest Size])
 ```
