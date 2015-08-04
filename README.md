@@ -11,7 +11,7 @@ Exploits headers and the Skype protocol.
 
 # Usage
 
-Load main.js into a Tampermonkey script. Use the following commands when typing a message to somebody on web.skype.com.
+Load main.js into a Tampermonkey script. Use the following commands when typing a message to somebody on web.skype.com. Also only the desktop and mobile versions of skype will be seeing these exploits in action, the web beta client wont show the exploits for some reason but that is fine since almost nobody uses it.
 
 ```
 # - Starts the script
