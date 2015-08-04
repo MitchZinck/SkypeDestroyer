@@ -13,5 +13,6 @@ Exploits headers and the Skype protocol.
 ```
 #[website](text)
 
-#[www.google.com](facebook.com) == <a href="https://www.google.com">facebook.com</a>
+#[www.google.com](facebook.com) becomes <a href="https://www.google.com">facebook.com</a> in skype showing up as:
 ```
+<a href="https://www.google.com">facebook.com</a>
