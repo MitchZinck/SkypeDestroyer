@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         My Fancy New Userscript
-// @namespace    http://your.homepage/
+// @name         SkypeDestroyer
+// @namespace    http://mzinck.com
 // @version      0.1
-// @description  Skype exploit
-// @author       You
+// @description  Skype Script
+// @author       Mitchell Zinck <mitchellzinck@yahoo.com
 // @include      https://web.skype.com/en/
 // @grant        none
 // ==/UserScript==
@@ -25,8 +25,7 @@
 
     XHR.prototype.send = function(data) {
         var k;
-        if(isMsg(data) && data != null) {
-            console.log(data);
+        if(isMsg(data) && data != null) {       
             k = JSON.parse(data);
             if(k.content.substring(0, 1) === "#") {    
                 k = replaceContent(k);
@@ -35,7 +34,9 @@
                     data = k;
                 }
             }
-        }
+                    console.log(data);
+        }        
+
         var self = this;
         var start;
         var oldOnReadyStateChange;
@@ -108,3 +109,4 @@ function replaceContent(data) {
         return null;
     }
 }
+
