@@ -11,6 +11,8 @@ Exploits headers and the Skype protocol.
 
 # Usage
 
+Load main.js into a Tampermonkey script. Use the following commands when typing a message to somebody on web.skype.com.
+
 ```
 # - Starts the script
 !size here! - Determines the font size
