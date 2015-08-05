@@ -9,6 +9,12 @@ Exploits headers and the Skype protocol.
 - Change text size
 - More to come
 
+Pictures
+========
+![alt text](http://i.imgur.com/KHtGmh7.png)
+![alt text](http://i.imgur.com/5rlXp2i.png)
+![alt text](http://i.imgur.com/1KhJ8pj.png)
+
 # Usage
 
 Load main.js into a Tampermonkey script. Use the following commands when typing a message to somebody on web.skype.com. Also only the desktop and mobile versions of skype will be seeing these exploits in action, the web beta client wont show the exploits for some reason but that is fine since almost nobody uses it.
@@ -24,7 +30,7 @@ E.G.
 
 #[website](text) - Link spoofed
 
-(Font sizes in skype range from 9[Normal Size] to 1[Smallest Size])
+(Font sizes in skype range from 1[Smallest] to a huge amount. 9 is default size.
 ```
 
 EXAMPLE
@@ -39,5 +45,4 @@ in skype showing up as:
 ```
 #!4!SkypeDestroyer would show up as <font size="4">SkypeDestroyer</font>
 ```
-
 
