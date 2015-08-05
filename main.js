@@ -1,14 +1,4 @@
 // ==UserScript==
-// @name         My Fancy New Userscript
-// @namespace    http://your.homepage/
-// @version      0.1
-// @description  Skype exploit
-// @author       You
-// @include      https://web.skype.com/en/
-// @grant        none
-// ==/UserScript==
-
-// ==UserScript==
 // @name         SkypeDestroyer
 // @namespace    http://mzinck.com
 // @version      0.1
