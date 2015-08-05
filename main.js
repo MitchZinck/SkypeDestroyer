@@ -121,7 +121,15 @@ function isMsg(value) {
 
 function replaceURL(data) {
     try {
-        if(data.content.match(/\[(.*?)\]/)[1].indexOf("http://") == -1 || data.content.match(/\[(.*?)\]/)[1].indexOf("https://") == -1) {            
+        if(data.content.indexOf('<a href="') > -1) {
+            var remove = data.content.match(/\<(.*?)\>/)[1];
+            data.content = data.content.replace(remove, '');
+            data.content = data.content.replace('<', '');
+            data.content = data.content.replace('>', '');
+            data.content = data.content.replace('</a>', '');
+            console.log(data.content);
+        }
+        if(data.content.match(/\[(.*?)\]/)[1].indexOf("http://") == -1 && data.content.match(/\[(.*?)\]/)[1].indexOf("https://") == -1) {   
             data.content = "<a href='http://" +  data.content.match(/\[(.*?)\]/)[1] + "'>" + data.content.match(/\(([^)]+)\)/)[1] + "</a>";
         } else {
             data.content = "<a href='" +  data.content.match(/\[(.*?)\]/)[1] + "'>" + data.content.match(/\(([^)]+)\)/)[1] + "</a>";
@@ -139,7 +147,7 @@ function changeFontSize(data, size) {
             data.content = data.content.replace(data.content.match(/\!(.*?)\!/)[1], '');
             data.content = data.content.replace(/!/g, '');
         }
-       
+
         data.content = "<font size='" +  size + "'>" + data.content + "</font>";
         return data;
     } catch(ex) {
