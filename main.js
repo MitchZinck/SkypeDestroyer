@@ -28,26 +28,33 @@
         if(isMsg(data) && data != null) {       
             k = JSON.parse(data);
             var size = null;
-            if(k.content.indexOf("!") > -1) {
-                size = k.content.match(/\!(.*?)\!/)[1];
-            }
-            if(k.content.substring(0, 1) === "#") {    
-                k = replaceURL(k);
-                if(k !== null) {
-                    k = JSON.stringify(k);
-                    data = k;
+            if(k.content.indexOf("##") > -1) {
+                k.content = k.content.replace('##','');
+                k.content = unescapeHTML(k.content);
+                k = JSON.stringify(k);
+                data = k;
+            } else {
+                if(k.content.indexOf("!") > -1) {
+                    size = k.content.match(/\!(.*?)\!/)[1];
                 }
-                if(size !== null) {
-                    k = changeFontSize(JSON.parse(data), size);
+                if(k.content.substring(0, 1) === "#") {    
+                    k = replaceURL(k);
                     if(k !== null) {
                         k = JSON.stringify(k);
                         data = k;
                     }
-                }
-            } 
+                    if(size !== null) {
+                        k = changeFontSize(JSON.parse(data), size);
+                        if(k !== null) {
+                            k = JSON.stringify(k);
+                            data = k;
+                        }
+                    }
+                } 
+            }
 
             console.log(data);
-        }        
+        }
 
         var self = this;
         var start;
@@ -128,6 +135,10 @@ function replaceURL(data) {
     } catch(ex) {
         return null;
     }
+}
+
+function unescapeHTML(escapedHTML) {
+  return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/&quot;/g, '"').replace(/&apos;/g, "'");
 }
 
 function changeFontSize(data, size) {
