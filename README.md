@@ -23,7 +23,10 @@ Load main.js into a Tampermonkey script. Use the following commands when typing 
 ```
 # - Starts the script
 !size here! - Determines the font size
-## - If the command starts with this then everything after is copy pasted into skype without the double hashtags. Html and other entities are also unescaped because Skype automatically escapes them so you can fiddle with html without Skype automatically escaping it.
+## - If the command starts with this then everything after is copy pasted 
+into skype without the double hashtags. Html and other entities 
+are also unescaped because Skype automatically escapes 
+them so you can fiddle with html without Skype automatically escaping it.
 
 E.G.
 #[website](text)!font size! - Link spoofed with fontsize changed
