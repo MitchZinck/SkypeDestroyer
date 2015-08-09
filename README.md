@@ -13,7 +13,6 @@ Exploits headers and the Skype protocol.
 Pictures
 ========
 ![alt text](http://i.imgur.com/KHtGmh7.png)
-![alt text](http://i.imgur.com/5rlXp2i.png)
 ![alt text](http://i.imgur.com/1KhJ8pj.png)
 
 # Usage
@@ -38,7 +37,7 @@ E.G.
 (Font sizes in skype range from 1[Smallest] to a huge amount. 9 is default size.
 ```
 
-EXAMPLE
+EXAMPLES
 
 ```
 #[www.google.com](facebook.com)!4! becomes 
@@ -50,4 +49,5 @@ in skype showing up as:
 ```
 #!4!SkypeDestroyer would show up as <font size="4">SkypeDestroyer</font>
 ```
-
+![alt text](http://i.imgur.com/0I6YRUh.gif)
+![alt text](http://i.imgur.com/QhGs99b.gif)
