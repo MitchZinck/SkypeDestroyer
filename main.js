@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SkypeDestroyer
-// @namespace    http://mzinck.com
+// @namespace    http://mzinck.com - https://github.com/MitchZinck
 // @version      0.1
 // @description  Skype Script
 // @author       Mitchell Zinck <mitchellzinck@yahoo.com
