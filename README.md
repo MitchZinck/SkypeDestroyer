@@ -37,12 +37,12 @@ E.G.
 (Font sizes in skype range from 1[Smallest] to a huge amount. 9 is default size.
 ```
 
-EXAMPLES
+# EXAMPLES
 
 ```
-#[www.google.com](facebook.com)!4! becomes 
+#[www.google.com](facebook.com)!4! changes the message in the header to
 <font size="4"><a href="https://www.google.com">facebook.com</a></font> 
-in skype showing up as:
+showing up as:
 ```
 <font size="4"><a href="https://www.google.com">facebook.com</a></font>
 
