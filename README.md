@@ -49,5 +49,4 @@ in skype showing up as:
 ```
 #!4!SkypeDestroyer would show up as <font size="4">SkypeDestroyer</font>
 ```
-![alt text](http://i.imgur.com/0I6YRUh.gif)
-![alt text](http://i.imgur.com/QhGs99b.gif)
+
