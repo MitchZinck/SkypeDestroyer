@@ -1,3 +1,5 @@
+This may be outdated/not working.
+
 # SkypeDestroyer
 TamperMonkey/GreaseMonkey addon for https://web.skype.com.
 
