@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SkypeDestroyer
-// @namespace    http://mzinck.com - https://github.com/MitchZinck
+// @namespace    http://mzinck.com
 // @version      0.1
 // @description  Skype Script
 // @author       Mitchell Zinck <mitchellzinck@yahoo.com
@@ -25,7 +25,7 @@
 
     XHR.prototype.send = function(data) {
         var k;
-        if(isMsg(data) && data != null) {       
+        if(isMsg(data) && data !== null) {
             k = JSON.parse(data);
             var size = null;
             if(k.content.indexOf("##") > -1) {
@@ -37,7 +37,7 @@
                 if(k.content.indexOf("!") > -1) {
                     size = k.content.match(/\!(.*?)\!/)[1];
                 }
-                if(k.content.substring(0, 1) === "#") {    
+                if(k.content.substring(0, 1) === "#") {
                     k = replaceURL(k);
                     if(k !== null) {
                         k = JSON.stringify(k);
@@ -45,6 +45,12 @@
                     }
                     if(size !== null) {
                         k = changeFontSize(JSON.parse(data), size);
+                        if(k !== null) {
+                            k = JSON.stringify(k);
+                            data = k;
+                        }
+                    } else {
+                        k = changeFontSize(JSON.parse(data), 10);
                         if(k !== null) {
                             k = JSON.stringify(k);
                             data = k;
@@ -63,10 +69,10 @@
 
         function onReadyStateChange() {
             if(self.readyState == 4 /* complete */) {
-                var time = new Date() - start;                
+                var time = new Date() - start;
                 stats.push({
                     url: url,
-                    duration: time                    
+                    duration: time
                 });
 
                 if(!timeoutId) {
@@ -75,12 +81,12 @@
                         xhr.noIntercept = true;
                         xhr.open("POST", "/clientAjaxStats", true);
                         xhr.setRequestHeader("Content-type","application/json");
-                        xhr.send(JSON.stringify({ stats: stats } ));                        
+                        xhr.send(JSON.stringify({ stats: stats } ));
 
                         timeoutId = null;
-                        stats = []; 
+                        stats = [];
                     }, 2000);
-                }                
+                }
             }
 
             if(oldOnReadyStateChange) {
@@ -94,13 +100,13 @@
             if(this.addEventListener) {
                 this.addEventListener("readystatechange", onReadyStateChange, false);
             } else {
-                oldOnReadyStateChange = this.onreadystatechange; 
+                oldOnReadyStateChange = this.onreadystatechange;
                 this.onreadystatechange = onReadyStateChange;
             }
         }
 
         send.call(this, data);
-    }
+    };
 })(XMLHttpRequest);
 
 function isMsg(value) {
