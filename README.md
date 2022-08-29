@@ -10,7 +10,6 @@ Exploits headers and the Skype protocol.
 - Link spoofing
 - Change text size
 - Unescaped html
-- More to come
 
 # Usage
 
